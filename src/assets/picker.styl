@@ -1,0 +1,29 @@
+@import './style.styl'
+
+.picker-container
+    display: flex
+    flex-direction: row
+    width: 100%
+    &.margin
+        margin-bottom: 60px
+    .picker-check
+        display: flex
+        padding: 0px 15px
+        align-items: center
+        width: 180px
+        height: 60px
+        border: 1px solid $border
+        margin-left: 10px
+        opacity: 0.6;
+        font-size: 16px;
+        font-weight: 500;
+        color: $link;
+        cursor: pointer
+        &:nth-child(1)
+            margin-left: 0px
+        &:hover
+            background: $pickbg
+            border: 2px solid $checkbox
+        &.active
+            background: $pickbg
+            border: 2px solid $checkbox

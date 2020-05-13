@@ -1,0 +1,37 @@
+@import './style.styl'
+
+.step-container
+    display: flex
+    flex-direction: row
+    position: absolute
+    padding: 20px 38px
+    border-radius: 35px
+    background: $background
+    left: 50%
+    transform: translate(-50%, -50%)
+    .arrow-space-between
+        display: flex
+        align-items: center
+        justify-content: center
+        color: $theme
+        flex-direction: row
+        padding: 0px 22px
+    .nav
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: center
+        color: $theme
+        .bullet
+            border-radius: 100%
+            width: 30px
+            height 30px
+            background: $themeoff
+            display: flex
+            justify-content: center
+            align-items: center
+            color: $theme
+            margin-right: 10px
+            &.active
+                color: $text
+                background: $theme
