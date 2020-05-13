@@ -70,9 +70,6 @@ export default {
   data () {
     return {
       msg: 'Shipment',
-      shipment: globalState.shipment,
-      payment: globalState.payment,
-      price: globalState.price,
       dropship: globalState.dropship
     }
   },

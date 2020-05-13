@@ -15,20 +15,20 @@
             <div class="underline"></div>
           </div>
           <div class="checkbox">
-            <input class="checkbox" v-on:change="dropshipCheck" type="checkbox" v-model="dropship"/>
+            <input class="checkbox" v-on:change="dropshipCheck" type="checkbox" :checked="computedDropship"/>
             <span>Send as dropshipper</span>
           </div>
         </div>
         <div class="form-group">
-          <input type="text" placeholder="Email" v-model="name" v-on:input="setVal('name', name)"/>
-          <input type="text" placeholder="Dropshipper Name" :disabled="computedDropship ? false : true" v-model="dropship_name" v-on:input="setVal('dropship_name', dropship_name)"/>
+          <input type="text" placeholder="Email" :value="computedName" v-on:input="setVal($event.target.value, 'name')"/>
+          <input type="text" placeholder="Dropshipper Name" :disabled="computedDropship ? false : true" :value="computedDropshipName" v-on:input="setVal($event.target.value, 'dropship_name')"/>
         </div>
         <div class="form-group">
-          <input type="text" placeholder="Phone Number"  v-model="phone_number" v-on:input="setVal('phone_number', phone_number)"/>
-          <input type="text" placeholder="Dropshipper Phone Number" :disabled="computedDropship ? false : true" v-model="dropship_number" v-on:input="setVal('dropship_number', dropship_number)"/>
+          <input type="text" placeholder="Phone Number" :value="computedPhoneNumber" v-on:input="setVal($event.target.value, 'phone_number')"/>
+          <input type="text" placeholder="Dropshipper Phone Number" :disabled="computedDropship ? false : true" :value="computedDropshipNumber" v-on:input="setVal($event.target.value, 'dropship_number')"/>
         </div>
         <div class="form-group">
-          <textarea placeholder="Delivery Address" v-model="delivery_address" v-on:input="setVal('delivery_address', delivery_address)"></textarea>
+          <textarea placeholder="Delivery Address" :value="computedDeliveryAddress" v-on:input="setVal($event.target.value, 'delivery_address')"></textarea>
         </div>
       </div>
       <div class="line-border"></div>
@@ -72,15 +72,7 @@ export default {
   name: 'Delivery',
   data () {
     return {
-      msg: 'Delivery',
-      shipment: globalState.shipment,
-      price: globalState.price,
-      dropship: globalState.dropship,
-      name: globalState.name,
-      phone_number: globalState.phone_number,
-      delivery_address: globalState.delivery_address,
-      dropship_name: globalState.dropship_name,
-      dropship_number: globalState.dropship_number
+      msg: 'Delivery'
     }
   },
   components: {
@@ -103,8 +95,8 @@ export default {
         globalState.price -= 5900
       }
     },
-    setVal: function (e, value) {
-      globalState[e] = value
+    setVal: function (e, idx) {
+      globalState[idx] = e
     }
   },
   computed: {
